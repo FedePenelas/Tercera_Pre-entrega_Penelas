@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from AdoptAR_pagina import models
+from django.template import loader
 from django.template import Context, Template
 
 def inicio(request):
@@ -25,4 +25,14 @@ def prueba(request):
     html.close()
     contexto = Context(diccionario)
     documento = plantilla.render(contexto)
+    return HttpResponse(documento)
+
+def prueba2(request):
+    # Obtener la plantilla utilizando loader.get_template()
+    plantilla = loader.get_template('index.html')
+    # Realizar cualquier lógica adicional o procesamiento de datos aquí
+    # Renderizar la plantilla con un contexto y obtener el documento resultante
+    contexto = {'variable': 'valor'}
+    documento = plantilla.render(contexto)
+    # Retornar el documento como una respuesta HTTP
     return HttpResponse(documento)
