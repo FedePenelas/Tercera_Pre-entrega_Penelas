@@ -1,3 +1,24 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from AdoptAR_pagina import models
+from django.template import context, Template
 
-# Create your views here.
+def inicio(request):
+    return HttpResponse("Vista inicial")
+
+def mascota(request):
+    return HttpResponse("Vista mascota")
+
+def adoptante(request):
+    return HttpResponse("Vista adoptante")
+
+def transito(request):
+    return HttpResponse("Vista transito")
+
+def prueba(self):
+    html = open("C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\Plantillas\\template1.html")
+    plantilla = Template(html.read())
+    contexto = context()
+    html.close()
+    documento = plantilla.render(contexto)
+    return HttpResponse(documento)
