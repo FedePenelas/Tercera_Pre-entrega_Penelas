@@ -1,6 +1,5 @@
 from django.urls import path
 from AdoptAR_pagina import views
-from views import inicio, mascota, adoptante, transito
 
 urlpatterns = [
     path('', views.inicio),
