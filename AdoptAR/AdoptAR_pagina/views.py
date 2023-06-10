@@ -19,7 +19,7 @@ def prueba(request):
     nom = "Fede"
     ap = "Pene"
     diccionario = {"nombre":nom, "apellido":ap}
-    html = open("C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\static\\assets\\template1.html")
+    html = open("C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\AdoptAR_pagina\\static\\assets\\template1.html")
     plantilla = Template(html.read())
     contexto = Context()
     html.close()
