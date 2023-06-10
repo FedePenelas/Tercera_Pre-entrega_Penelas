@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.template import Context, Template
 
-def inicio(request):
+def index(request):
     # Obtener la plantilla utilizando loader.get_template()
     plantilla = loader.get_template('index.html')
     # Realizar cualquier lógica adicional o procesamiento de datos aquí

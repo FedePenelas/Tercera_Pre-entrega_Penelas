@@ -56,7 +56,8 @@ ROOT_URLCONF = 'AdoptAR.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\AdoptAR_pagina\\static\\assets"],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'AdoptAR_pagina\\static\\assets\\templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
