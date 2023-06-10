@@ -1,5 +1,6 @@
-<!DOCTYPE html>
 {% load static %}
+{%  block body %}
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -22,13 +23,12 @@
                 <a class="navbar-brand" href="#!">Start Bootstrap</a>
                 <div class="btn-group" role="group" aria-label="Navigation Buttons">
                     <a class="btn btn-primary" href="#signup">Ingresar</a>
-                    <a class="btn btn-primary" href="#adoptar">Adoptar</a>
+                    <a class="btn btn-primary" href="127.0.0.1:8000/#adoptar/">Adoptar</a>
                     <a class="btn btn-primary" href="#transito">Transito</a>
                     <a class="btn btn-primary" href="#enadopcion">Dar en adopción</a>
                 </div>
             </div>
         </nav>
-        
         <!-- Masthead-->
         <header class="masthead">
             <div class="container position-relative">
@@ -208,13 +208,6 @@
                 </div>
             </div>
         </section>
-        
-        
-        {%  block body %}
-
-        {% endblock body %}
-        
-        
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
@@ -258,3 +251,4 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
+{% endblock body %}
