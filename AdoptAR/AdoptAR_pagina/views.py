@@ -19,7 +19,7 @@ def prueba(request):
     nom = "Fede"
     ap = "Pene"
     diccionario = {"nombre":nom, "apellido":ap}
-    html = open("C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\Plantillas\\template1.html")
+    html = open("C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\static\\assets\\template1.html")
     plantilla = Template(html.read())
     contexto = Context()
     html.close()
@@ -31,6 +31,7 @@ def prueba2(request):
     # Obtener la plantilla utilizando loader.get_template()
     plantilla = loader.get_template('index.html')
     # Realizar cualquier lógica adicional o procesamiento de datos aquí
+
     # Renderizar la plantilla con un contexto y obtener el documento resultante
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
