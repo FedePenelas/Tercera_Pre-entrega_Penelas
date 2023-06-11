@@ -3,14 +3,14 @@
 {% block mensaje1 %} 
   {% if resultados %}
     <ul>
-      {% for persona in resultados %}
+      {% for donante in resultados %}
         <li>
-          Nombre: {{ persona.nombre }}<br>
-          Apellido: {{ persona.apellido }}<br>
-          Edad: {{ persona.edad }}<br>
-          Contacto: {{ persona.contacto }}<br>
-          Dirección: {{ persona.direccion }}<br>
-          Mensaje: {{ persona.mensaje }}<br>
+          Nombre: {{ donante.nombre }}<br>
+          Apellido: {{ donante.apellido }}<br>
+          Edad: {{ donante.edad }}<br>
+          Contacto: {{ donante.contacto }}<br>
+          Dirección: {{ donante.direccion }}<br>
+          Mensaje: {{ donante.mensaje }}<br>
         </li>
       {% endfor %}
     </ul>

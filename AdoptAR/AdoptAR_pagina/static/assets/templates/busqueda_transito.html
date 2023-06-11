@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% block titulo %} Buscar Transitos {% endblock titulo %}
-{% block mensaje1 %}   <h2>Buscar Transitos</h2>
+{% block mensaje1 %}   <h2>Buscar Transito</h2>
 <form method="POST">
   {% csrf_token %}
   {{ form }}
   <button type="submit">Buscar</button>
 </form>
-{% if form.errors %}
-<p>{{ form.errors }}</p>
-{% endif %}{% endblock mensaje1 %}
+  {% if form.errors %}
+    <p>{{ form.errors }}</p>
+  {% endif %}
+{% endblock mensaje1 %}
 {% block contacto1 %}{% endblock contacto1 %}
 {% block iconos %}{% endblock iconos %}
 {% block imagen1 %}{% endblock imagen1 %}
@@ -23,15 +24,3 @@
 {% block testimonials %}{% endblock testimonials %}
 {% block mensaje2 %}{% endblock mensaje2 %}
 {% block contacto2 %}{% endblock contacto2 %}
-
-
-{% load static %}
-
-{% block content %}
-  <h2>Buscar Transito</h2>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Buscar</button>
-  </form>
-{% endblock %}

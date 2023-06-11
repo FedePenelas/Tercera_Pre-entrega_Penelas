@@ -98,8 +98,16 @@ def buscar_persona(request):
 
     return render(request, 'busqueda_persona.html', {'form': form})
 
-def buscar_en_panel(nombre):
-    resultados = Persona.objects.filter(nombre__icontains=nombre)
+
+def buscar_en_panel(model, nombre):
+    if model == 'Donante':
+        resultados = Donante.objects.filter(nombre__icontains=nombre)
+    elif model == 'Transito':
+        resultados = Transito.objects.filter(nombre__icontains=nombre)
+    elif model == 'Persona':
+        resultados = Persona.objects.filter(nombre__icontains=nombre)
+    else:
+        resultados = []  # Modelo no válido, se devuelve una lista vacía
     return resultados
 
 def buscar_donante(request):
@@ -107,19 +115,20 @@ def buscar_donante(request):
         form = BusquedaForm(request.POST)
         if form.is_valid():
             criterio = form.cleaned_data['criterio']
-            resultados = buscar_en_panel(criterio)
+            resultados = buscar_en_panel('Donante', criterio)  # Llamada a la función de búsqueda con el modelo 'Donante' y el criterio de búsqueda
             return render(request, 'resultado_busqueda.html', {'resultados': resultados})
     else:
         form = BusquedaForm()
 
     return render(request, 'busqueda_donante.html', {'form': form})
 
+
 def buscar_transito(request):
     if request.method == 'POST':
         form = BusquedaForm(request.POST)
         if form.is_valid():
             criterio = form.cleaned_data['criterio']
-            resultados = Persona.objects.filter(nombre__icontains=criterio)
+            resultados = Transito.objects.filter(nombre__icontains=criterio)
             return render(request, 'resultado_busqueda.html', {'resultados': resultados})
     else:
         form = BusquedaForm()
