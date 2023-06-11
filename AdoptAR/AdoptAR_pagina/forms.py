@@ -28,3 +28,6 @@ class FormularioGenerico(forms.ModelForm):
     class Meta:
         model = None
         fields = '__all__'
+
+class BusquedaForm(forms.Form):
+    criterio = forms.CharField(label='Criterio de búsqueda', max_length=100)

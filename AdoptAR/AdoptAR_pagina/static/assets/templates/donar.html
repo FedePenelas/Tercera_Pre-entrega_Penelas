@@ -20,7 +20,7 @@
 
 {% block titulo %} AdoptAR - Donar {% endblock titulo %}
 {% block mensaje1 %}<p>¡Ayudanos! Completa el siguiente formulario para un aporte solidario.</p>
-<p><form method="post">
+<p><form method="POST">
     {% csrf_token %}
   
     <label for="id_nombre">Nombre:</label>

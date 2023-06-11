@@ -20,7 +20,7 @@
 
 {% block titulo %} AdoptAR - Tránsito {% endblock titulo %}
 {% block mensaje1 %}<p>Acá se anotan aquellos que se ofrecen como dueños transitorios.</p>
-<p><form method="post">
+<p><form method="POST">
     {% csrf_token %}
   
     <label for="id_nombre">Nombre:</label>

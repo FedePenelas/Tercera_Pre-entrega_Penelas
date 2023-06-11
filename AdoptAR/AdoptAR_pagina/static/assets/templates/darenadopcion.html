@@ -20,7 +20,7 @@
 
 {% block titulo %} AdoptAR - Dar en adopción {% endblock titulo %}
 {% block mensaje1 %}<p>Acá se anotan aquellos que quieran dar en adopción una mascota:</p>
-<p><form method="post">
+<p><form method="POST">
     {% csrf_token %}
   
     <label for="id_nombre">Nombre:</label>

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from django.template import Context, Template
-from .forms import FormularioPersona, FormularioDonante, FormularioDarEnAdopcion, FormularioTransito, FormularioGenerico
+from .forms import FormularioPersona, FormularioDonante, FormularioDarEnAdopcion, FormularioTransito, FormularioGenerico, BusquedaForm
 from .models import *
 
 def index(request):
@@ -25,29 +25,29 @@ def transito(request):
         formulario = FormularioTransito(request.POST)
         if formulario.is_valid():
             # Procesar los datos del formulario
-            # ...
+            formulario.save()
             # Redirigir a otra vista
-            return redirect('listo.html')
+            return redirect('listo')
     else:
         formulario = FormularioTransito()
     plantilla = loader.get_template('transito.html')
     contexto = {'variable': 'valor', 'formulario': formulario}
     documento = plantilla.render(contexto)
-    return HttpResponse(documento)
+    return render(request, 'transito.html', contexto)
 def darEnAdopcion(request):
     if request.method == 'POST':
         formulario = FormularioDarEnAdopcion(request.POST)
         if formulario.is_valid():
             # Procesar los datos del formulario
-            # ...
+            formulario.save()
             # Redirigir a otra vista
-            return redirect('listo.html')
+            return redirect('listo')
     else:
         formulario = FormularioDarEnAdopcion()
     plantilla = loader.get_template('darenadopcion.html')
     contexto = {'variable': 'valor', 'formulario': formulario}
     documento = plantilla.render(contexto)
-    return HttpResponse(documento)
+    return render(request, 'darenadopcion.html', contexto)
 def sobrenosotros(request):
     plantilla = loader.get_template('sobrenosotros.html')
     contexto = {'variable': 'valor'}
@@ -63,15 +63,16 @@ def donar(request):
         formulario = FormularioDonante(request.POST)
         if formulario.is_valid():
             # Procesar los datos del formulario
-            # ...
+            formulario.save()
             # Redirigir a otra vista
-            return redirect('listo.html')
+            return redirect('listodonar')
     else:
         formulario = FormularioDonante()
     plantilla = loader.get_template('donar.html')
     contexto = {'variable': 'valor', 'formulario': formulario}
     documento = plantilla.render(contexto)
-    return HttpResponse(documento)
+    return render(request, 'donar.html', contexto)
+
 def listo(request):
 
     plantilla = loader.get_template('listo.html')
@@ -79,37 +80,48 @@ def listo(request):
     documento = plantilla.render(contexto)
     return HttpResponse(documento)
 
+def listodonar(request):
+    plantilla = loader.get_template('listodonar.html')
+    contexto = {'variable': 'valor'}
+    documento = plantilla.render(contexto)
+    return HttpResponse(documento)
 
-def formularioGenerico(request, modelo):
-    # Determina el modelo específico basado en el parámetro recibido
-    if modelo == 'persona':
-        modelo = Persona
-    elif modelo == 'darenadopcion':
-        modelo = DarEnAdopcion
-    elif modelo == 'transito':
-        modelo = Transito
-    elif modelo == 'donante':
-        modelo = Donante
-    else:
-        # Manejo de caso inválido, como redirección a una página de error
-        return redirect('pagina_error')
-
+def buscar_persona(request):
     if request.method == 'POST':
-        form = FormularioGenerico(request.POST)
+        form = BusquedaForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('confirmacion')
+            criterio = form.cleaned_data['criterio']
+            resultados = buscar_en_panel(criterio)  # Llamada a la función de búsqueda
+            return render(request, 'resultado_busqueda.html', {'resultados': resultados})
     else:
-        form = FormularioGenerico()
+        form = BusquedaForm()
 
-    return render(request, 'formulario_generico.html', {'form': form})
+    return render(request, 'busqueda_persona.html', {'form': form})
 
-def formulariofede(request):
-    if request.method == "POST":
-        formulario = FormularioDarEnAdopcion(request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            return render(request, 'listo.html')
+def buscar_en_panel(nombre):
+    resultados = Persona.objects.filter(nombre__icontains=nombre)
+    return resultados
+
+def buscar_donante(request):
+    if request.method == 'POST':
+        form = BusquedaForm(request.POST)
+        if form.is_valid():
+            criterio = form.cleaned_data['criterio']
+            resultados = buscar_en_panel(criterio)
+            return render(request, 'resultado_busqueda.html', {'resultados': resultados})
     else:
-        formulario = FormularioDarEnAdopcion()
-    return render(request, 'formularios.html', {'formulario': formulario})
+        form = BusquedaForm()
+
+    return render(request, 'busqueda_donante.html', {'form': form})
+
+def buscar_transito(request):
+    if request.method == 'POST':
+        form = BusquedaForm(request.POST)
+        if form.is_valid():
+            criterio = form.cleaned_data['criterio']
+            resultados = Persona.objects.filter(nombre__icontains=criterio)
+            return render(request, 'resultado_busqueda.html', {'resultados': resultados})
+    else:
+        form = BusquedaForm()
+
+    return render(request, 'busqueda_transito.html', {'form': form})

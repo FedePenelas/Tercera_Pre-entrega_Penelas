@@ -13,7 +13,7 @@
       <title>Formulario - Agregar Curso</title>
   </head>
   <body>
-      <form action="/listo/"    method="post"> {% csrf_token %}
+      <form action="/listo/"    method="POST">  {% csrf_token %}
           <p> Nombre: <input type = "text" name="nombre">
           <p> Apellido: <input type = "text" name="Apellido">
           <input type = "submit" value="Enviar">
