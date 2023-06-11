@@ -1,5 +1,9 @@
 # Tercera_Pre-entrega+Penelas.
-Corriendo la web con python manage.py runserver e ingresando con el navegador a 127.0.0.1:8000 vamos a la página principal de AdoptAR, una web de mascotas en adopción. 
+Mediante git init se inició la carpeta raíz a partir de la cual todo lo que esta dentro fue pusheado a este repositorio.
+
+Se crea proyecto de Django y su correspondiente aplicación.
+
+Corriendo la web con python manage.py runserver, parado en la carpeta del prouecto e ingresando con el navegador a 127.0.0.1:8000 vamos a la página principal de AdoptAR, una web de mascotas en adopción. 
 
 En la página inicial hay información, botones y barra de contacto configuradas. En el pie de página tambien están editados los textos, incluso el About Us y contact.
 
