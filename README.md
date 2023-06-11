@@ -1,6 +1,6 @@
 # Tercera_Pre-entrega+Penelas.
-
 Corriendo la web con python manage.py runserver e ingresando con el navegador a 127.0.0.1:8000 vamos a la página principal de AdoptAR, una web de mascotas en adopción. 
+
 En la página inicial hay información, botones y barra de contacto configuradas.
 Cada boton lleva a una dirección distinta, donde se puede evidenciar la herencia de un template base que es el que tiene el index, página inicial.
 La página forma parte de mi proyecto AdoptAR, el cual tiene la aplicación AdoptAR_pagina, donde se encuentran todos los componentes de la misma.
