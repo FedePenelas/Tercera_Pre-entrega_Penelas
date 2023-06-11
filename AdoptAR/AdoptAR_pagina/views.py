@@ -25,3 +25,9 @@ def transito(request):
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
     return HttpResponse(documento)
+
+def darEnAdopcion(request):
+    plantilla = loader.get_template('darenadopcion.html')
+    contexto = {'variable': 'valor'}
+    documento = plantilla.render(contexto)
+    return HttpResponse(documento)

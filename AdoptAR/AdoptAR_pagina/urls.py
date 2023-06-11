@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.index),
     path("adoptar/", views.adoptar),
     path("transito/", views.transito),
+    path("darenadopcion/", views.darEnAdopcion),
 ]
