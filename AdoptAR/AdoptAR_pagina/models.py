@@ -14,7 +14,7 @@ class DarEnAdopcion(models.Model):
     edad = models.IntegerField()
     contacto = models.CharField(max_length=60)
     direccion = models.CharField(max_length=60)
-    mensaje = models.CharField(max_length=120)
+    mensaje = models.CharField(max_length=120, default='Valor predeterminado')
 
 class Transito(models.Model):
     nombre = models.CharField(max_length=40)
@@ -22,7 +22,7 @@ class Transito(models.Model):
     edad = models.IntegerField()
     contacto = models.CharField(max_length=60)
     direccion = models.CharField(max_length=60)
-    mensaje = models.CharField(max_length=120)
+    mensaje = models.CharField(max_length=120, default='Valor predeterminado')
 
 class Donante(models.Model):
     nombre = models.CharField(max_length=40)
@@ -30,4 +30,4 @@ class Donante(models.Model):
     edad = models.IntegerField()
     contacto = models.CharField(max_length=60)
     direccion = models.CharField(max_length=60)
-    mensaje = models.CharField(max_length=120)
+    mensaje = models.CharField(max_length=120, default='Valor predeterminado')

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import formularioPersona, formularioDonante, formularioTransito, formularioDarEnAdopcion
+from .views import FormularioGenerico
 from AdoptAR_pagina import views
 
 urlpatterns = [
@@ -10,8 +10,7 @@ urlpatterns = [
     path('sobrenosotros/', views.sobrenosotros),
     path('contacto/', views.contacto),
     path("donar/", views.donar),
-    path('formularioPersona/', formularioPersona, name='Formulario'),
-    path('formularioDonante/', formularioDonante, name='Formulario de donante'),
-    path('formularioTransito/', formularioTransito, name='Formulario para transito'),
-    path('formularioDarEnAdopcion/', formularioDarEnAdopcion, name='Formulario para dar en adopción'),
+    path('formularioGenerico/<str:modelo>/', FormularioGenerico, name='formulario_generico'),
+    path("formulariofede/", views.formulariofede, name= 'Formulario'),
+    path("listo/", views.listo),
 ]

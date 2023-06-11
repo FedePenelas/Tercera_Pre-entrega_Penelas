@@ -19,7 +19,30 @@
 {% load static %}
 
 {% block titulo %} AdoptAR - Tránsito {% endblock titulo %}
-{% block mensaje1 %} Acá se anotan aquellos que se ofrecen como dueños transitorios. {% endblock mensaje1 %}
+{% block mensaje1 %}<p>Acá se anotan aquellos que se ofrecen como dueños transitorios.</p>
+<p><form method="post">
+    {% csrf_token %}
+  
+    <label for="id_nombre">Nombre:</label>
+    <input type="text" id="id_nombre" name="nombre" required><br>
+  
+    <label for="id_apellido">Apellido:</label>
+    <input type="text" id="id_apellido" name="apellido" required><br>
+  
+    <label for="id_edad">Edad:</label>
+    <input type="number" id="id_edad" name="edad" required><br>
+  
+    <label for="id_contacto">Contacto:</label>
+    <input type="text" id="id_contacto" name="contacto" required><br>
+  
+    <label for="id_direccion">Dirección:</label>
+    <input type="text" id="id_direccion" name="direccion" required><br>
+  
+    <label for="id_mensaje">Mensaje:</label>
+    <textarea id="id_mensaje" name="mensaje" required></textarea><br>
+  
+    <button type="submit">Enviar</button>
+  </form></p>{% endblock mensaje1 %}
 {% block contacto1 %} {% endblock contacto1 %}
 {% block iconos %} {% endblock iconos %}
 {% block testimonials %} {% endblock testimonials %}

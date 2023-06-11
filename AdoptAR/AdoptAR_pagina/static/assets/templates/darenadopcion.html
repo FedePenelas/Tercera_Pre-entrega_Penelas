@@ -3,15 +3,15 @@
 <!-- {% block mensaje11 %} Web para facilitar adopción y tránsito de mascotas! {% endblock mensaje11 %} -->
 <!-- {% block contacto11 %} {% endblock contacto11 %} -->
 <!-- {% block iconos1 %} {% endblock iconos1 %} -->
-{% block imagen1 %} {% endblock imagen1 %}
-{% block encabezado1 %} {% endblock encabezado1 %}
-{% block textoencabezado1 %} {% endblock textoencabezado1 %}
-{% block imagen2 %} {% endblock imagen2 %}
-{% block encabezado2 %} {% endblock encabezado2 %}
-{% block textoencabezado2 %} {% endblock textoencabezado2 %}
-{% block imagen3 %} {% endblock imagen3 %}
-{% block encabezado3 %} {% endblock encabezado3 %}
-{% block textoencabezado3 %} {% endblock textoencabezado3 %}
+{% block imagen1 %}{% endblock imagen1 %}
+{% block encabezado1 %}{% endblock encabezado1 %}
+{% block textoencabezado1 %}{% endblock textoencabezado1 %}
+{% block imagen2 %}{% endblock imagen2 %}
+{% block encabezado2 %}{% endblock encabezado2 %}
+{% block textoencabezado2 %}{% endblock textoencabezado2 %}
+{% block imagen3 %}{% endblock imagen3 %}
+{% block encabezado3 %}{% endblock encabezado3 %}
+{% block textoencabezado3 %}{% endblock textoencabezado3 %}
 <!-- {% block testimonials1 %} {% endblock testimonials1 %} -->
 <!-- {% block mensaje22 %} {% endblock mensaje22 %} -->
 <!-- {% block contacto22 %} {% endblock contacto22 %} -->
@@ -19,8 +19,40 @@
 {% load static %}
 
 {% block titulo %} AdoptAR - Dar en adopción {% endblock titulo %}
-{% block mensaje1 %} Para dar mascotas en adopción, completar el siguiente formulario. {% endblock mensaje1 %}
-{% block contacto1 %} {% endblock contacto1 %}
+{% block mensaje1 %}<p>Acá se anotan aquellos que quieran dar en adopción una mascota:</p>
+<p><form method="post">
+    {% csrf_token %}
+  
+    <label for="id_nombre">Nombre:</label>
+    <input type="text" id="id_nombre" name="nombre" required><br>
+  
+    <label for="id_apellido">Apellido:</label>
+    <input type="text" id="id_apellido" name="apellido" required><br>
+  
+    <label for="id_edad">Edad:</label>
+    <input type="number" id="id_edad" name="edad" required><br>
+  
+    <label for="id_contacto">Contacto:</label>
+    <input type="text" id="id_contacto" name="contacto" required><br>
+  
+    <label for="id_direccion">Dirección:</label>
+    <input type="text" id="id_direccion" name="direccion" required><br>
+
+    <label for="id_nombre">Nombre del animal:</label>
+    <input type="text" id="id_nombre" name="nombre" required><br>
+  
+    <label for="id_apellido">Especie y raza:</label>
+    <input type="text" id="id_apellido" name="apellido" required><br>
+  
+    <label for="id_edad">Edad del animal:</label>
+    <input type="number" id="id_edad" name="edad" required><br>
+  
+    <label for="id_mensaje">Mensaje:</label>
+    <textarea id="id_mensaje" name="mensaje" required></textarea><br>
+  
+    <button type="submit">Enviar</button>
+  </form></p>{% endblock mensaje1 %}
+{% block contacto1 %}{% endblock contacto1 %}
 {% block iconos %} {% endblock iconos %}
 {% block testimonials %} {% endblock testimonials %}
 {% block mensaje2 %}{% endblock mensaje2 %}

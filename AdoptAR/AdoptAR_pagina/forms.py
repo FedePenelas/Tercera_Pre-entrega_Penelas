@@ -1,27 +1,30 @@
 from django import forms
+from .models import *
 
-class FormularioPersona(forms.Form):
-    nombre = forms.CharField(label='Nombre', max_length=30)
-    apellido = forms.CharField(label='Apellido', max_length=20)
-    email = forms.EmailField(label='E-mail')
-    mensaje = forms.CharField(label='Mensaje', widget=forms.Textarea)
+class FormularioPersona(forms.ModelForm):
+    class Meta:
+        model = Persona
+        fields = '__all__'
 
-class FormularioDonante(forms.Form):
-    nombre = forms.CharField(label='Nombre', max_length=30)
-    apellido = forms.CharField(label='Apellido', max_length=20)
-    email = forms.EmailField(label='E-mail')
-    mensaje = forms.CharField(label='Mensaje', widget=forms.Textarea)
+class FormularioDonante(forms.ModelForm):
+    class Meta:
+        model = Donante
+        fields = '__all__'
 
-class FormularioTransito(forms.Form):
-    nombre = forms.CharField(label='Nombre', max_length=30)
-    apellido = forms.CharField(label='Apellido', max_length=20)
-    email = forms.EmailField(label='E-mail')
-    mensaje = forms.CharField(label='Mensaje', widget=forms.Textarea)
+class FormularioTransito(forms.ModelForm):
+    class Meta:
+        model = Transito
+        fields = '__all__'
 
-class FormularioDarEnAdopcion(forms.Form):
-    nombre = forms.CharField(label='Nombre', max_length=30)
-    apellido = forms.CharField(label='Apellido', max_length=20)
-    email = forms.EmailField(label='E-mail')
-    animal = forms.CharField(label="Animal")
-    edadanimal = forms.IntegerField()
-    mensaje = forms.CharField(label='Mensaje', widget=forms.Textarea)
+class FormularioDarEnAdopcion(forms.ModelForm):
+    class Meta:
+        model = DarEnAdopcion
+        fields = '__all__'
+
+
+from .models import Persona, DarEnAdopcion, Transito, Donante
+
+class FormularioGenerico(forms.ModelForm):
+    class Meta:
+        model = None
+        fields = '__all__'
