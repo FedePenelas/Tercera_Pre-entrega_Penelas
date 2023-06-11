@@ -16,3 +16,5 @@ En models.py estan migrados todos los modelos y vinculados a forms.py
 En las secciones donar, transito y dar en adopción, se encuentran los formularios. Por una falta de tiempo, ya que estoy entregando el trabajo hoy día domingo 11/06/2023 porque tengo un viaje de trabajo en donde no podré continuar trabajando en la entrega, no llego a terminar el formulario. Teniendo casi 3 días menos para hacerlo, entrego el trabajo incompleto. Los formularios están, de hecho en las vistas se ven, y al completarlos nos lleva a una vista de confirmación. El problema hasta hoy, en el cual (insisto) no tengo tiempo para resolver, es que lo ingresado en esos formularios no se guardan en ningún lado. No se ven reflejados los datos en el panel de administración, como tampoco en el archivo SQL.
 
 Agoté instancias como CoderAsk, pregunta a compañeros, ChatGPT y revisión de las clases, pero se puede ver cómo el código para que los formularios interactúen con los modelos está presente pero los mismos no son registrados en ninguna parte.
+
+Por esa misma razón, no se realiza entonces el formulario de búsqueda, ya que al no registrarse nada, no hay nada para buscar.
