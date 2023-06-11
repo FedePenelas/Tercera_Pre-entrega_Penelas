@@ -31,3 +31,15 @@ def darEnAdopcion(request):
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
     return HttpResponse(documento)
+
+def sobrenosotros(request):
+    plantilla = loader.get_template('sobrenosotros.html')
+    contexto = {'variable': 'valor'}
+    documento = plantilla.render(contexto)
+    return HttpResponse(documento)
+
+def contacto(request):
+    plantilla = loader.get_template('contacto.html')
+    contexto = {'variable': 'valor'}
+    documento = plantilla.render(contexto)
+    return HttpResponse(documento)
