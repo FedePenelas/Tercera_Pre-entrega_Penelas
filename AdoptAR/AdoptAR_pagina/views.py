@@ -43,3 +43,9 @@ def contacto(request):
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
     return HttpResponse(documento)
+
+def donar(request):
+    plantilla = loader.get_template('donar.html')
+    contexto = {'variable': 'valor'}
+    documento = plantilla.render(contexto)
+    return HttpResponse(documento)

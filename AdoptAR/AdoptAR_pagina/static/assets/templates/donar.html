@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+<!-- {% block titulo1 %} Inicio {% endblock titulo1 %} -->
+<!-- {% block mensaje11 %} Web para facilitar adopción y tránsito de mascotas! {% endblock mensaje11 %} -->
+<!-- {% block contacto11 %} {% endblock contacto11 %} -->
+<!-- {% block iconos1 %} {% endblock iconos1 %} -->
+<!-- {% block imagen11 %} {% endblock imagen11 %} -->
+<!-- {% block encabezado11 %} {% endblock encabezado11 %} -->
+<!-- {% block textoencabezado11 %} {% endblock textoencabezado11 %} -->
+<!-- {% block imagen22 %} {% endblock imagen22 %} -->
+<!-- {% block encabezado22 %} {% endblock encabezado22 %} -->
+<!-- {% block textoencabezado22 %} {% endblock textoencabezado22 %} -->
+<!-- {% block imagen33 %} {% endblock imagen33 %} -->
+<!-- {% block encabezado33 %} {% endblock encabezado33 %} -->
+<!-- {% block textoencabezado33 %} {% endblock textoencabezado33 %} -->
+<!-- {% block testimonials1 %} {% endblock testimonials1 %} -->
+<!-- {% block mensaje22 %} {% endblock mensaje22 %} -->
+<!-- {% block contacto22 %} {% endblock contacto22 %} -->
+
+{% load static %}
+
+{% block titulo %} AdoptAR - Donar {% endblock titulo %}
+{% block mensaje1 %} ¡Ayudanos! Completa el siguiente formulario para un aporte solidario. {% endblock mensaje1 %}
+{% block contacto1 %} {% endblock contacto1 %}
+{% block iconos %}
+<section class="features-icons bg-light text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+                    <h3>Mascotas</h3>
+                    <p class="lead mb-0">Encontrarás todo tipo de mascotas en busca de un hogar tanto permanente como transitorio!</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                    <h3>Adopción</h3>
+                    <p class="lead mb-0">Podes publicar una mascota rescatada o que esté en adopción, como también adoptar una para vos!</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                    <h3>Transito</h3>
+                    <p class="lead mb-0">También facilitamos el tránsito de mascotas que lo requieran, esto es: tener una mascota temporalmente hasta que aparezca un dueño. Es para los casos en que la mascota no tenga donde ir, y una persona pueda comprometerse a tenerla por un breve periodo de tiempo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock iconos%}
+<!-- Image Showcases-->
+<section class="showcase">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets\img\bg-showcase-1.jpg')"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                {% block imagen1 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\imagen_main.jpg' %}" class="img-fluid"> {% endblock imagen1 %}
+                <h2>{% block encabezado1%} Adoptemos con responsabilidad {% endblock encabezado1 %}</h2>
+                <p class="lead mb-0">{% block textoencabezado1 %} Se busca que las mascotas sean recibidas mediante una adopción responsable, se realiza seguimiento a las mascotas recientemente adoptadas. {% endblock textoencabezado1 %}</p>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+            <div class="col-lg-6 my-auto showcase-text">
+                {% block imagen2 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\maps.png' %}" class="img-fluid">{% endblock imagen2 %}
+                <h2>{% block encabezado2 %}<p>¡Te ayudamos a encontrar a tu Mascota!</p>{% endblock encabezado2 %}</h2>
+                <p class="lead mb-0">{% block textoencabezado2 %}<p>Vamos a hacer que la pérdida de tu mascota se vuelva viral.</p>
+                    <p>A través de campañas de búsqueda, vamos a difundir el caso de tu mascota. Te aseguramos que el anuncio llegará a un montón de personas en la zona donde se perdió, aumentando así las chances de encontrarla.</p>
+                    {% endblock textoencabezado2 %}</p>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                {% block imagen3 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\lorito.jpeg' %}" class="img-fluid">{% endblock imagen3%}
+                <h2>{% block encabezado3 %}Contactate con el mejor equipo veterinario!{% endblock encabezado3 %}</h2>
+                <p class="lead mb-0">{% block textoencabezado3 %}Trabajamos con una red de veterinarios rescatistas, muchos de los cuales trabajan con nosotros, donde podes hacer un seguimiento de salud a tu mascotita recien adoptada o rescatada.{% endblock textoencabezado3 %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% block testimonials %} {% endblock testimonials %}
+{% block mensaje2 %}{% endblock mensaje2 %}
+{% block contacto2 %}{% endblock contacto2 %}

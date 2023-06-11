@@ -18,10 +18,13 @@
 
 {% load static %}
 
-{% block titulo %}AdoptAR - Inicio {% endblock titulo %}
+{% block titulo %} AdoptAR - Inicio {% endblock titulo %}
+{% block startbootstrap %} <a class="navbar-brand" href="/donar/">Donar</a> {% endblock startbootstrap %}
 {% block mensaje1 %} Web para facilitar adopción y tránsito de mascotas! {% endblock mensaje1 %}
 {% block contacto1 %} {% endblock contacto1 %}
 {% block testimonials %} {% endblock testimonials %}
+{% block imagen1 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\imagen_main.jpg' %}" class="img-fluid"> {% endblock imagen1 %}
+{% block textoencabezado1 %} Se busca que las mascotas sean recibidas mediante una adopción responsable, se realiza seguimiento a las mascotas recientemente adoptadas. {% endblock textoencabezado1 %}
 {% block mensaje2 %} ¿Queres adoptar una mascota, dar una en adopción o darle tránsito a una? ¡Contactanos!{% endblock mensaje2 %}
 {% block contacto2 %} <div class="row">
     <div class="col">

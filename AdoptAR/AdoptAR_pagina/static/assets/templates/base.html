@@ -37,7 +37,7 @@
     <body>
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                {% block startbootstrap %} <a class="navbar-brand" href="/donar/">Donar</a> {% endblock startbootstrap %}
                 <div class="btn-group" role="group" aria-label="Navigation Buttons">
                     <a class="btn btn-primary" href="http://127.0.0.1:8000">Inicio</a>
                     <a class="btn btn-primary" href="/adoptar/">Adoptar</a>
@@ -134,23 +134,25 @@
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                         {% block imagen1 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\oso_1.jpg' %}" class="img-fluid"> {% endblock imagen1 %}
                         <h2>{% block encabezado1%} Adoptemos con responsabilidad {% endblock encabezado1 %}</h2>
-                        <p class="lead mb-0">{% block textoencabezado1 %}Adopción responsable, se realiza seguimiento a las mascotas recientemente adoptadas. {% endblock textoencabezado1 %}</p>
+                        <p class="lead mb-0">{% block textoencabezado1 %} Se busca que las mascotas sean recibidas mediante una adopción responsable, se realiza seguimiento a las mascotas recientemente adoptadas. {% endblock textoencabezado1 %}</p>
                     </div>
                 </div>
                 <div class="row g-0">
                     <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
                     <div class="col-lg-6 my-auto showcase-text">
-                        {% block imagen2 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\oso_2.jpg' %}" class="img-fluid">{% endblock imagen2 %}
-                        <h2>{% block encabezado2 %}Updated For Bootstrap 5{% endblock encabezado2 %}</h2>
-                        <p class="lead mb-0">{% block textoencabezado2 %}Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!{% endblock textoencabezado2 %}</p>
+                        {% block imagen2 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\maps.png' %}" class="img-fluid">{% endblock imagen2 %}
+                        <h2>{% block encabezado2 %}<p>¡Te ayudamos a encontrar a tu Mascota!</p>{% endblock encabezado2 %}</h2>
+                        <p class="lead mb-0">{% block textoencabezado2 %}<p>Vamos a hacer que la pérdida de tu mascota se vuelva viral.</p>
+                            <p>A través de campañas de búsqueda, vamos a difundir el caso de tu mascota. Te aseguramos que el anuncio llegará a un montón de personas en la zona donde se perdió, aumentando así las chances de encontrarla.</p>
+                            {% endblock textoencabezado2 %}</p>
                     </div>
                 </div>
                 <div class="row g-0">
                     <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        {% block imagen3 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\gatito_1.jpg' %}" class="img-fluid">{% endblock imagen3%}
-                        <h2>{% block encabezado3 %}Easy to Use & Customize{% endblock encabezado3 %}</h2>
-                        <p class="lead mb-0">{% block textoencabezado3 %}Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go! {% endblock textoencabezado3 %}</p>
+                        {% block imagen3 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\lorito.jpeg' %}" class="img-fluid">{% endblock imagen3%}
+                        <h2>{% block encabezado3 %}Contactate con el mejor equipo veterinario!{% endblock encabezado3 %}</h2>
+                        <p class="lead mb-0">{% block textoencabezado3 %}Trabajamos con una red de veterinarios rescatistas, muchos de los cuales trabajan con nosotros, donde podes hacer un seguimiento de salud a tu mascotita recien adoptada o rescatada.{% endblock textoencabezado3 %}</p>
                     </div>
                 </div>
             </div>
