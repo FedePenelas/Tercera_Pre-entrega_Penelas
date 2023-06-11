@@ -1,4 +1,4 @@
-# Tercera_Pre-entrega+Penelas.
+# Tercera_Pre-entrega_Penelas.
 Mediante git init se inició la carpeta raíz a partir de la cual todo lo que esta dentro fue pusheado a este repositorio.
 
 Se crea proyecto de Django y su correspondiente aplicación.
