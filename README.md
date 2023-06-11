@@ -1,7 +1,7 @@
 # Tercera_Pre-entrega+Penelas.
 Corriendo la web con python manage.py runserver e ingresando con el navegador a 127.0.0.1:8000 vamos a la página principal de AdoptAR, una web de mascotas en adopción. 
 
-En la página inicial hay información, botones y barra de contacto configuradas.
+En la página inicial hay información, botones y barra de contacto configuradas. En el pie de página tambien están editados los textos, incluso el About Us y contact.
 
 Cada boton lleva a una dirección distinta, donde se puede evidenciar la herencia de un template base que es el que tiene el index, página inicial.
 
@@ -11,10 +11,8 @@ Allí dentro, en views.py se ven las vistas con las direcciones, en urls.py las 
 
 Dentro de la carpeta static, por ejemplo, se encuentran los templates correspondientes a cada vista.
 
-En models.py estan migrados todos los modelos y vinculados a forms.py
+En models.py estan migrados todos los modelos y vinculados a forms.py. Los modelos tienen la función __str__ para que aparezcan con el nombre específico en el panel de administración de la aplicación web.
 
-En las secciones donar, transito y dar en adopción, se encuentran los formularios. Por una falta de tiempo, ya que estoy entregando el trabajo hoy día domingo 11/06/2023 porque tengo un viaje de trabajo en donde no podré continuar trabajando en la entrega, no llego a terminar el formulario. Teniendo casi 3 días menos para hacerlo, entrego el trabajo incompleto. Los formularios están, de hecho en las vistas se ven, y al completarlos nos lleva a una vista de confirmación. El problema hasta hoy, en el cual (insisto) no tengo tiempo para resolver, es que lo ingresado en esos formularios no se guardan en ningún lado. No se ven reflejados los datos en el panel de administración, como tampoco en el archivo SQL.
+En las secciones donar, transito y dar en adopción, se encuentran los formularios. Los mismos son completados y enviados, y este movimiento se registra en la base de datos y los modelos cargados.
 
-Agoté instancias como CoderAsk, pregunta a compañeros, ChatGPT y revisión de las clases, pero se puede ver cómo el código para que los formularios interactúen con los modelos está presente pero los mismos no son registrados en ninguna parte.
-
-Por esa misma razón, no se realiza entonces el formulario de búsqueda, ya que al no registrarse nada, no hay nada para buscar.
+Por una falta de tiempo, ya que estoy entregando el trabajo hoy día domingo 11/06/2023 porque tengo un viaje de trabajo en donde no podré continuar trabajando en la entrega, no llego a terminar el formulario. Teniendo casi 3 días menos para hacerlo, entrego el trabajo incompleto. Los formularios están, de hecho en las vistas se ven, y al completarlos nos lleva a una vista de confirmación. El problema hasta hoy, en el cual (insisto) no tengo tiempo para resolver, es que lo ingresado en esos formularios no se guardan en ningún lado. No se ven reflejados los datos en el panel de administración, como tampoco en el archivo SQL.
