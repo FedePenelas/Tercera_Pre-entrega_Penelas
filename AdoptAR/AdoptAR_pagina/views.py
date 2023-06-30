@@ -79,7 +79,6 @@ def listo(request):
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
     return HttpResponse(documento)
-
 def listodonar(request):
     plantilla = loader.get_template('listodonar.html')
     contexto = {'variable': 'valor'}
@@ -97,8 +96,6 @@ def buscar_persona(request):
         form = BusquedaForm()
 
     return render(request, 'busqueda_persona.html', {'form': form})
-
-
 def buscar_en_panel(model, nombre):
     if model == 'Donante':
         resultados = Donante.objects.filter(nombre__icontains=nombre)
@@ -109,7 +106,6 @@ def buscar_en_panel(model, nombre):
     else:
         resultados = []  # Modelo no válido, se devuelve una lista vacía
     return resultados
-
 def buscar_donante(request):
     if request.method == 'POST':
         form = BusquedaForm(request.POST)
@@ -121,8 +117,6 @@ def buscar_donante(request):
         form = BusquedaForm()
 
     return render(request, 'busqueda_donante.html', {'form': form})
-
-
 def buscar_transito(request):
     if request.method == 'POST':
         form = BusquedaForm(request.POST)
@@ -134,3 +128,8 @@ def buscar_transito(request):
         form = BusquedaForm()
 
     return render(request, 'busqueda_transito.html', {'form': form})
+
+def mostrar_darEnAdopcion(request):
+     darEnAdopcion = DarEnAdopcion.objects.all() #Trae los X que son CLASES y el objects esta definido dentro
+     contexto = {"darenadopcion":darEnAdopcion} #lo rojito es lo que tengo que llamar en el bucle for del html
+     return render(request, "mostrar_darEnAdopcion.html", contexto)

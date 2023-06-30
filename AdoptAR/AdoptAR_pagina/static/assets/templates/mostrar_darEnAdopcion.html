@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block titulo %} Mostrar en adopcion {% endblock titulo %}
+{% block mensaje1 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar en adopcion</title>
+</head>
+<body>
+    {% for adopcion in darenadopcion %}
+        <li>{{adopcion}}</li>
+    {% endfor %}
+</body>
+</html>
+{% endblock mensaje1 %}
+{% block contacto1 %} {% endblock contacto1 %}
+{% block iconos %} {% endblock iconos %}
+{% block imagen1 %} {% endblock imagen1 %}
+{% block encabezado1 %} {% endblock encabezado1 %}
+{% block textoencabezado1 %} {% endblock textoencabezado1 %}
+{% block imagen2 %} {% endblock imagen2 %}
+{% block encabezado2 %} {% endblock encabezado2 %}
+{% block textoencabezado2 %} {% endblock textoencabezado2 %}
+{% block imagen3 %} {% endblock imagen3 %}
+{% block encabezado3 %} {% endblock encabezado3 %}
+{% block textoencabezado3 %} {% endblock textoencabezado3 %}
+{% block testimonials %} {% endblock testimonials %}
+{% block mensaje2 %} {% endblock mensaje2 %}
+{% block contacto2 %} {% endblock contacto2 %}
+
+{% load static %}

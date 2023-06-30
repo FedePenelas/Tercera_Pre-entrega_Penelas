@@ -36,19 +36,27 @@
     </head>
     <body>
         <nav class="navbar navbar-light bg-light static-top">
-            <div class="container">
-                {% block startbootstrap %} <a class="navbar-brand" href="/donar/">Donar</a> {% endblock startbootstrap %}
-                <div class="btn-group" role="group" aria-label="Navigation Buttons">
-                    <a class="btn btn-primary" href="/buscar_transito/">Buscar Transitos</a>
-                    <a class="btn btn-primary" href="/buscar_donante">Buscar Donantes</a>
-                    <a class="btn btn-primary" href="/buscar_persona/">Buscar Personas</a>
-                    <a class="btn btn-primary" href="http://127.0.0.1:8000">Inicio</a>
-                    <a class="btn btn-primary" href="/adoptar/">Adoptar</a>
-                    <a class="btn btn-primary" href="/transito/">Transito</a>
-                    <a class="btn btn-primary" href="/darenadopcion/">Dar en adopción</a>
-                </div>
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                {% block startbootstrap %}
+                    <a class="navbar-brand" href="/donar/">Donar</a>
+                {% endblock startbootstrap %}
             </div>
-        </nav>
+            <div class="btn-group" role="group" aria-label="Navigation Buttons">
+                <a class="btn btn-primary" href="/buscar_transito/">Buscar Transitos</a>
+                <a class="btn btn-primary" href="/buscar_donante/">Buscar Donantes</a>
+                <a class="btn btn-primary" href="/buscar_persona/">Buscar Personas</a>
+                <a class="btn btn-primary" href="http://127.0.0.1:8000">Inicio</a>
+                <a class="btn btn-primary" href="/adoptar/">Adoptar</a>
+                <a class="btn btn-primary" href="/transito/">Transito</a>
+                <a class="btn btn-primary" href="/darenadopcion/">Dar en adopción</a>
+            </div>
+            <div>
+                <a class="navbar-brand" href="/registrarse/">Registrarse</a>
+                <a class="navbar-brand" href="/iniciar_sesion/">Iniciar Sesion</a>
+            </div>
+        </div>
+    </nav>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container position-relative">
@@ -133,7 +141,7 @@
         <section class="showcase">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets\img\bg-showcase-1.jpg')"></div>
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets\img\bg-showcase-2.jpg')"></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                         {% block imagen1 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\oso_1.jpg' %}" class="img-fluid"> {% endblock imagen1 %}
                         <h2>{% block encabezado1%} Adoptemos con responsabilidad {% endblock encabezado1 %}</h2>
@@ -141,7 +149,7 @@
                     </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
                     <div class="col-lg-6 my-auto showcase-text">
                         {% block imagen2 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\maps.png' %}" class="img-fluid">{% endblock imagen2 %}
                         <h2>{% block encabezado2 %}<p>¡Te ayudamos a encontrar a tu Mascota!</p>{% endblock encabezado2 %}</h2>
