@@ -1,5 +1,6 @@
 from AdoptAR_login import forms, models
 from .models import Account
+from .forms import UserEditForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
@@ -10,6 +11,7 @@ from django.views.generic import DeleteView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from AdoptAR_login.forms import RegistroUsuarioForm, EditarUsuarioForm
+from AdoptAR_pagina.forms import FormularioTransito, FormularioDonante, FormularioDarEnAdopcion, FormularioPersona
 
 def login_request(request):
     if request.method == 'POST':
@@ -73,11 +75,11 @@ def editar_perfil(request):
 
 @login_required
 def mostrar_perfil(request):
-    return render(request, 'mostrar_account.html')
+    return render(request, 'mostrar_cuenta.html')
 
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
-    template_name = 'cambiar_password.html'
-    success_url = reverse_lazy("mostrar_perfil")
+    template_name = 'cambiar_contraseña.html'
+    success_url = reverse_lazy("mostrar_cuenta")
 
 class EliminarPerfil(LoginRequiredMixin, DeleteView):
     model = User
@@ -86,3 +88,34 @@ class EliminarPerfil(LoginRequiredMixin, DeleteView):
 
 class Logout(LoginRequiredMixin, LogoutView):
     template_name = 'logout_account.html'
+
+
+
+@login_required
+def editarPerfil(request):
+
+    usuario = request.user
+
+    if request.method == 'POST':
+
+        miFormulario = UserEditForm(request.POST)
+
+        if miFormulario.is_valid():
+
+            informacion = miFormulario.cleaned_data
+
+            usuario.email = informacion['email']
+            usuario.password1 = informacion['password1']
+            usuario.password2 = informacion['password2']
+            usuario.last_name = informacion['last_name']
+            usuario.first_name = informacion['first_name']
+
+            usuario.save()
+
+            return render(request, "AppCoder/inicio.html")
+
+    else:
+
+        miFormulario = UserEditForm(initial={'email': usuario.email})
+
+    return render(request, "AppCoder/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})

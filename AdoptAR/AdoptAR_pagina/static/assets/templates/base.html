@@ -34,29 +34,36 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href= '{% static "css/styles.css" %}' rel="stylesheet" />
     </head>
+{% block login %}
     <body>
         <nav class="navbar navbar-light bg-light static-top">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div>
-                {% block startbootstrap %}
-                    <a class="navbar-brand" href="/donar/">Donar</a>
-                {% endblock startbootstrap %}
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    {% block startbootstrap %}
+                        <a class="navbar-brand" href="/donar/">Donar</a>
+                    {% endblock startbootstrap %}
+                </div>
+                <div class="btn-group" role="group" aria-label="Navigation Buttons">
+                    <a class="btn btn-primary" href="/buscar_transito/">Buscar Transitos</a>
+                    <a class="btn btn-primary" href="/buscar_donante/">Buscar Donantes</a>
+                    <a class="btn btn-primary" href="/buscar_persona/">Buscar Personas</a>
+                    <a class="btn btn-primary" href="http://127.0.0.1:8000">Inicio</a>
+                    <a class="btn btn-primary" href="/adoptar/">Adoptar</a>
+                    <a class="btn btn-primary" href="/transito/">Transito</a>
+                    <a class="btn btn-primary" href="/darenadopcion/">Dar en adopción</a>
+                </div>
+                <div>
+                    {% if not request.user.is_authenticated %}
+                        <a class="navbar-brand" href="{% url 'crear_cuenta' %}">Crear Cuenta</a>
+                        <a class="navbar-brand" href="{% url 'listo' %}">Iniciar Sesión</a>
+                    {% else %}
+                        <p class="text-muted small mb-4 mb-lg-0">Hola, {{ request.user.username }}.</p>
+                    {% endif %}
+                </div>
             </div>
-            <div class="btn-group" role="group" aria-label="Navigation Buttons">
-                <a class="btn btn-primary" href="/buscar_transito/">Buscar Transitos</a>
-                <a class="btn btn-primary" href="/buscar_donante/">Buscar Donantes</a>
-                <a class="btn btn-primary" href="/buscar_persona/">Buscar Personas</a>
-                <a class="btn btn-primary" href="http://127.0.0.1:8000">Inicio</a>
-                <a class="btn btn-primary" href="/adoptar/">Adoptar</a>
-                <a class="btn btn-primary" href="/transito/">Transito</a>
-                <a class="btn btn-primary" href="/darenadopcion/">Dar en adopción</a>
-            </div>
-            <div>
-                <a class="navbar-brand" href="/crear_cuenta/">Crear Cuenta</a>
-                <a class="navbar-brand" href="/iniciar_sesion/">Iniciar Sesion</a>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </body>
+{% endblock login %}
         <!-- Masthead-->
         <header class="masthead">
             <div class="container position-relative">
