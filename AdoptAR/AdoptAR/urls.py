@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
+from AdoptAR_pagina import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('AdoptAR_pagina.urls')),
     path('', include('AdoptAR_login.urls')),
+    path('', views.index, name="index"),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

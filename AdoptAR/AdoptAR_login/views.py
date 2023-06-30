@@ -37,7 +37,7 @@ def register(request):
             form.save()
             return redirect("listo")
         else:
-            return render(request, "crear_cuenta", {"form":form})
+            return render(request, "crear_cuenta.html", {"form":form})
 
     form = forms.RegistroUsuarioForm()
     return render(request, "crear_cuenta.html", {"form":form})

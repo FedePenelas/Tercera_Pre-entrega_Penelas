@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block titulo %} Crear Cuenta {% endblock titulo %}
 {% block mensaje1 %} 
-<form method="POST" action="{% url 'listo' %}" class="m-2">
+<form method="POST" action="{% url 'crear_cuenta' %}" class="m-2">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Enviar" class="btn btn-primary">
