@@ -16,4 +16,5 @@ urlpatterns = [
     path('buscar_transito/', views.buscar_transito, name='buscar_persona'),
     path('buscar_donante/', views.buscar_donante, name='buscar_persona'),
     path('mostrar_darEnAdopcion/', views.mostrar_darEnAdopcion, name='mostrar_darEnAdopcion'),
+    
 ]

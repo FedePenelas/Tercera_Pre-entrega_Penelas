@@ -74,7 +74,6 @@ def donar(request):
     return render(request, 'donar.html', contexto)
 
 def listo(request):
-
     plantilla = loader.get_template('listo.html')
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
