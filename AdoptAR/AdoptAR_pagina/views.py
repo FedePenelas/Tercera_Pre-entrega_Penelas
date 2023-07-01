@@ -4,6 +4,7 @@ from django.template import loader
 from django.template import Context, Template
 from .forms import FormularioPersona, FormularioDonante, FormularioDarEnAdopcion, FormularioTransito, FormularioGenerico, BusquedaForm
 from .models import *
+from AdoptAR_login.models import Avatar
 
 def index(request):
     # Obtener la plantilla utilizando loader.get_template()
