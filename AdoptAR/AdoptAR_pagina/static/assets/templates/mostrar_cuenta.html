@@ -1,29 +1,38 @@
 {% extends 'base.html' %}
-{% load static %}
-
-{% block title %} Account {% endblock title %}
-
-{% block main %}
-    <div class="col-8">
-        <div class="card m-2" style="border-radius: 15px;">
-            <div class="card-body p-4">
-                <div class="d-flex text-black">
-                    <div class="flex-shrink-0">
-                        {% if request.user.account.avatar %}
-                            <img src={{request.user.account.avatar.url}} alt="avatar" style="width: 60px; height:50px;" class="rounded-circle img-fluid">
-                        {% endif %}
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                        <h5 class="mb-1">{{ request.user.first_name }} {{ request.user.last_name }}</h5>
-                        <p class="mb-2 pb-1" style="color: #2b2a2a;">Email: {{request.user.email}}</p>
-                    </div>
-                </div>
-            </div>
+{% block titulo %} Perfil {% endblock titulo %}
+{% block mensaje1 %}
+<div class="col-8">
+    <div class="d-flex text-black">
+        <div class="flex-shrink-0">
+            {% if request.user.account.avatar %}
+                <img src={{request.user.account.avatar.url}} alt="avatar" style="width: 60px; height:50px;" class="rounded-circle img-fluid">
+            {% endif %}
+        </div>
+        <div class="flex-grow-1 ms-3">
+            <h5 class="mb-1">{{ request.user.first_name }} {{ request.user.last_name }}</h5>
+            <p class="mb-2 pb-1" style="color: #2b2a2a;">Email: {{request.user.email}}</p>
         </div>
     </div>
-    <div>
-        <a href="{% url 'editar_perfil' %}" class="m-2 btn btn-primary">Editar perfil</a>
-        <a href="{% url 'eliminar_perfil' user.id %}" class="m-2 btn btn-primary">Eliminar perfil</a>
-    </div>
+</div>
+<div>
+    <a href="{% url 'editar_perfil' %}" class="m-2 btn btn-primary">Editar perfil</a>
+    <a href="{% url 'eliminar_perfil' user.id %}" class="m-2 btn btn-primary">Eliminar perfil</a>
+</div>
 
-{% endblock main %}
+{% endblock mensaje1 %}
+{% block contacto1 %} {% endblock contacto1 %}
+{% block iconos %} {% endblock iconos %}
+{% block imagen1 %} {% endblock imagen1 %}
+{% block encabezado1 %} {% endblock encabezado1 %}
+{% block textoencabezado1 %} {% endblock textoencabezado1 %}
+{% block imagen2 %} {% endblock imagen2 %}
+{% block encabezado2 %} {% endblock encabezado2 %}
+{% block textoencabezado2 %} {% endblock textoencabezado2 %}
+{% block imagen3 %} {% endblock imagen3 %}
+{% block encabezado3 %} {% endblock encabezado3 %}
+{% block textoencabezado3 %} {% endblock textoencabezado3 %}
+{% block testimonials %} {% endblock testimonials %}
+{% block mensaje2 %} {% endblock mensaje2 %}
+{% block contacto2 %} {% endblock contacto2 %}
+
+{% load static %}

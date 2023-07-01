@@ -1,7 +1,7 @@
 from AdoptAR_login import forms, models
 from .models import Account
-from .forms import UserEditForm
-from django.contrib.auth import login, authenticate
+#from .forms import UserEditForm
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -34,7 +34,10 @@ def register(request):
     if request.method == 'POST':
         form = forms.RegistroUsuarioForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            account = Account(user=user)
+            account.save()
+            
             return redirect("listo")
         else:
             return render(request, "crear_cuenta.html", {"form":form})
@@ -61,7 +64,7 @@ def editar_perfil(request):
             usuario.save()
             return redirect("mostrar_perfil")
         else:
-            return render(request, 'editar_account.html', {'form': form})
+            return render(request, 'editar_cuenta.html', {'form': form})
 
     form = forms.EditarUsuarioForm(
         initial={
@@ -71,7 +74,7 @@ def editar_perfil(request):
             'avatar': modelo_perfil.avatar
         }
     )
-    return render(request, 'editar_account.html', {'form': form})
+    return render(request, 'editar_cuenta.html', {'form': form})
 
 @login_required
 def mostrar_perfil(request):
@@ -87,35 +90,41 @@ class EliminarPerfil(LoginRequiredMixin, DeleteView):
     template_name = 'eliminar_account.html'
 
 class Logout(LoginRequiredMixin, LogoutView):
-    template_name = 'logout_account.html'
+    template_name = 'cerrar_sesion.html'
 
+
+
+#@login_required
+#def editarPerfil(request):
+#
+#    usuario = request.user
+#
+#    if request.method == 'POST':
+#
+#        miFormulario = UserEditForm(request.POST)
+#
+#        if miFormulario.is_valid():
+#
+#            informacion = miFormulario.cleaned_data
+#
+#            usuario.email = informacion['email']
+#            usuario.password1 = informacion['password1']
+#            usuario.password2 = informacion['password2']
+#            usuario.last_name = informacion['last_name']
+#            usuario.first_name = informacion['first_name']
+#
+#            usuario.save()
+#
+#            return render(request, "C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\AdoptAR_pagina\\static\\assets\\templates\\inicio.html")
+#
+#    else:
+#
+#        miFormulario = UserEditForm(initial={'email': usuario.email})
+#
+#    return render(request, "C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\AdoptAR_pagina\\static\\assets\\templates\\editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
 
 
 @login_required
-def editarPerfil(request):
-
-    usuario = request.user
-
-    if request.method == 'POST':
-
-        miFormulario = UserEditForm(request.POST)
-
-        if miFormulario.is_valid():
-
-            informacion = miFormulario.cleaned_data
-
-            usuario.email = informacion['email']
-            usuario.password1 = informacion['password1']
-            usuario.password2 = informacion['password2']
-            usuario.last_name = informacion['last_name']
-            usuario.first_name = informacion['first_name']
-
-            usuario.save()
-
-            return render(request, "AppCoder/inicio.html")
-
-    else:
-
-        miFormulario = UserEditForm(initial={'email': usuario.email})
-
-    return render(request, "AppCoder/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
+def logout_request(request):
+    logout(request)
+    return redirect("index")

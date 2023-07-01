@@ -14,12 +14,12 @@ def index(request):
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
     # Retornar el documento como una respuesta HTTP
-    return HttpResponse(documento)
+    return render(request, 'index.html', contexto)
 def adoptar(request):
     plantilla = loader.get_template('adoptar.html')
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
-    return HttpResponse(documento)
+    return render(request, 'adoptar.html', contexto)
 def transito(request):
     if request.method == 'POST':
         formulario = FormularioTransito(request.POST)
