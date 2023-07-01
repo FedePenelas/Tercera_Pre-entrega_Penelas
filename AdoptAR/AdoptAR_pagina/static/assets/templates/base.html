@@ -58,11 +58,15 @@
                         <a class="navbar-brand" href="{% url 'crear_cuenta' %}">Crear Cuenta</a>
                         <a class="navbar-brand" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
                     {% else %}
-                    <p class="text-muted small mb-4 mb-lg-0">ACA TIENE QUE IR EL AVATAR</p>
+                    <div class="text-center">
+                        <img height="40px" src="{{url}}">
+                        <h3>{{user.username}}</h3>
+                    </div>
                     
+                    <img src="{{ avatar_url }}" />
+                    <img height="40px" src="{{url}}">
                     
-                    
-                    <p class="text-muted small mb-4 mb-lg-0">Hola, {{ request.user.username }}.</p>
+                    <p class="text-muted small mb-4 mb-lg-0">{{ request.user.username }}.</p>
                         <a class="navbar-brand" href="{% url 'editar_perfil' %}">Editar Perfil</a>
                         <a class="navbar-brand" href="{% url 'cerrar_sesion' %}">Cerrar Sesion</a>
                     {% endif %}

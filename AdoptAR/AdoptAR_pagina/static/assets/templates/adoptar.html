@@ -31,7 +31,17 @@
 {% block imagen3 %} <img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\gatito_1.jpg' %}" class="img-fluid"> {% endblock imagen3 %}
 {% block encabezado3 %} Toby - 3 años {% endblock encabezado3 %}
 {% block textoencabezado3 %} Toby es un gatito macho criado en departamento. Es un gato delicado ya que extraña mucho si se queda solo. Ideal para que sea acompañado por otro animal. {% endblock textoencabezado3 %}
-{% block testimonials %} {% endblock testimonials %}
+{% block testimonials %}
+{% if user.is_authenticated %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Enviar comentario</button>
+    </form>
+{% else %}
+    <p>Inicia sesión para añadir un comentario.</p>
+{% endif %}
+{% endblock testimonials %}
 {% block mensaje2 %} ¿Estás interesado en adoptar alguno? ¡Contactanos! {% endblock mensaje2 %}
 {% block contacto2 %} <div class="row">
     <div class="col">

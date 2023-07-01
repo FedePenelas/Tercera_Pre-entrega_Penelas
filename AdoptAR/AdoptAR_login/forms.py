@@ -26,17 +26,5 @@ class EditarUsuarioForm(forms.Form):
         model = User
         fields = ['email', 'password1', 'password2', 'last_name', 'first_name']
 
-#class UserEditForm(UserCreationForm):
-#
-#    # Obligatorios
-#    email = forms.EmailField(label="Ingrese su email:")
-#    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
-#    password2 = forms.CharField(
-#        label='Repetir la contraseña', widget=forms.PasswordInput)
-#
-#    last_name = forms.CharField()                            #Estos son para EDITAR el usuario ya creado.
-#    first_name = forms.CharField()
-#
-#    class Meta:
-#        model = User
-#        fields = ['email', 'password1', 'password2', 'last_name', 'first_name']
+class ComentarioForm(forms.Form):
+    contenido = forms.CharField(widget=forms.Textarea(attrs={'rows': 3}))

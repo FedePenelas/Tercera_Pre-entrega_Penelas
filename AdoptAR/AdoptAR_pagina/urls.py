@@ -1,10 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from .views import FormularioGenerico
 from AdoptAR_pagina import views
 
 urlpatterns = [
     path('', views.index),
-    path("adoptar/", views.adoptar),
+    path("adoptar/", views.adoptar, name= 'adoptar'),
     path("transito/", views.transito),
     path("darenadopcion/", views.darEnAdopcion),
     path('sobrenosotros/', views.sobrenosotros),

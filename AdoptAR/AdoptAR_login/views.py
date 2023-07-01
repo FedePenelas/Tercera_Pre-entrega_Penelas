@@ -1,6 +1,5 @@
 from AdoptAR_login import forms, models
 from .models import Account
-#from .forms import UserEditForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
@@ -12,6 +11,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from AdoptAR_login.forms import RegistroUsuarioForm, EditarUsuarioForm
 from AdoptAR_pagina.forms import FormularioTransito, FormularioDonante, FormularioDarEnAdopcion, FormularioPersona
+from AdoptAR_login.models import Avatar
+from .forms import ComentarioForm
 
 def login_request(request):
     if request.method == 'POST':
@@ -94,37 +95,34 @@ class Logout(LoginRequiredMixin, LogoutView):
 
 
 
-#@login_required
-#def editarPerfil(request):
-#
-#    usuario = request.user
-#
-#    if request.method == 'POST':
-#
-#        miFormulario = UserEditForm(request.POST)
-#
-#        if miFormulario.is_valid():
-#
-#            informacion = miFormulario.cleaned_data
-#
-#            usuario.email = informacion['email']
-#            usuario.password1 = informacion['password1']
-#            usuario.password2 = informacion['password2']
-#            usuario.last_name = informacion['last_name']
-#            usuario.first_name = informacion['first_name']
-#
-#            usuario.save()
-#
-#            return render(request, "C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\AdoptAR_pagina\\static\\assets\\templates\\inicio.html")
-#
-#    else:
-#
-#        miFormulario = UserEditForm(initial={'email': usuario.email})
-#
-#    return render(request, "C:\\Users\\Fede\\Desktop\\Fede\\Fede\\Programacion\\Coderhouse\\Python\\Pre-entregas\\Tercera Pre-entrega\\Tercera_Pre-entrega+PENELAS\\AdoptAR\\AdoptAR_pagina\\static\\assets\\templates\\editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
+def obtener_contexto_avatar(request):
+    avatar_url = None
+    if request.user.is_authenticated:
+        try:
+            avatar = Avatar.objects.filter(user=request.user).first()
+            if avatar:
+                avatar_url = avatar.imagen.url
+        except Avatar.DoesNotExist:
+            pass
+    return {'avatar_url': avatar_url}
 
 
 @login_required
 def logout_request(request):
     logout(request)
     return redirect("index")
+
+@login_required
+def agregar_comentario(request):
+    contexto_avatar = obtener_contexto_avatar(request)
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            contenido = form.cleaned_data['contenido']
+            # Guarda el comentario en la base de datos o realiza cualquier otra lógica
+            # Ejemplo: comentario = Comentario(usuario=request.user, contenido=contenido)
+            # comentario.save()
+            return redirect('adoptar.html')
+    else:
+        form = ComentarioForm()
+    return render(request, 'adoptar.html', {'form': form, **contexto_avatar})
