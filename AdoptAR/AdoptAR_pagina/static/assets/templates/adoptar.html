@@ -22,54 +22,41 @@
 {% block mensaje1 %} Estas son las mascotas que actualmente están en adopción {% endblock mensaje1 %}
 {% block contacto1 %} {% endblock contacto1 %}
 {% block iconos %} {% endblock iconos %}
-{% block imagen1 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\oso_1.jpg' %}" class="img-fluid"> {% endblock imagen1 %}
+{% block imagen1 %}<img src="{% static 'assets/img/oso_1.jpg' %}" class="img-fluid"> {% endblock imagen1 %}
 {% block encabezado1 %} Oso - 7 años {% endblock encabezado1 %}
 {% block textoencabezado1 %} Oso es un gato macho, criado en casa y con otros gatos. Se porta bien y se encuentra en buen estado de salud. Necesita adopción ya que su dueño se muda a Inglaterra.{% endblock textoencabezado1 %}
-{% block imagen2 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\gatitos_hermanos.jfif' %}" class="img-fluid"> {% endblock imagen2 %}
+{% block imagen2 %}<img src="{% static 'assets/img/gatitos_hermanos.jfif' %}" class="img-fluid"> {% endblock imagen2 %}
 {% block encabezado2 %} Tribilin y Blanquita - 7 años {% endblock encabezado2 %}
 {% block textoencabezado2 %} Tribilin y Blanquita son macho y hembra respectivamente. Ambos criados en casa y en contacto con otros gatos. Conviven bien con otros animales y se encuentran en buen estado de salud. Ellos son dados en adopción juntitos!{% endblock textoencabezado2 %}
-{% block imagen3 %} <img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\gatito_1.jpg' %}" class="img-fluid"> {% endblock imagen3 %}
+{% block imagen3 %} <img src="{% static 'assets/img/gatito_1.jpg' %}" class="img-fluid"> {% endblock imagen3 %}
 {% block encabezado3 %} Toby - 3 años {% endblock encabezado3 %}
 {% block textoencabezado3 %} Toby es un gatito macho criado en departamento. Es un gato delicado ya que extraña mucho si se queda solo. Ideal para que sea acompañado por otro animal. {% endblock textoencabezado3 %}
+
 {% block testimonials %}
-{% if user.is_authenticated %}
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Enviar comentario</button>
-    </form>
-{% else %}
-    <p>Inicia sesión para añadir un comentario.</p>
-{% endif %}
+    <h2>Comentarios:</h2>
+    {% for comentario in comentarios %}
+        <p>{{ comentario.usuario.username }} dijo: {{ comentario.contenido }}</p>
+        <p>{{ comentario.fecha }}</p>
+    {% empty %}
+        <p>No hay comentarios.</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Enviar comentario</button>
+        </form>
+    {% else %}
+        <p>Inicia sesión para añadir un comentario.</p>
+    {% endif %}
 {% endblock testimonials %}
+
 {% block mensaje2 %} ¿Estás interesado en adoptar alguno? ¡Contactanos! {% endblock mensaje2 %}
-{% block contacto2 %} <div class="row">
+{% block contacto2 %}
+<div class="row">
     <div class="col">
         <input class="form-control form-control-lg" id="emailAddressBelow" type="email" placeholder="Telefono o e-mail" data-sb-validations="required,email" />
         <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
-        <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>
-    </div>
-    <div class="col-auto"><button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Enviar</button></div>
-</div> {% endblock contacto2 %}
-
-<!-- Comentarios -->
-{% block comentarios %}
-<h2>Comentarios:</h2>
-{% for comentario in comentarios %}
-    <p>{{ comentario.usuario.username }} dijo: {{ comentario.contenido }}</p>
-{% empty %}
-    <p>No hay comentarios.</p>
-{% endfor %}
-{% endblock comentarios %}
-
-{% block formulario %}
-{% if user.is_authenticated %}
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Enviar comentario</button>
-    </form>
-{% else %}
-    <p>Inicia sesión para añadir un comentario.</p>
-{% endif %}
-{% endblock formulario %}
+        <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid
+{% endblock contacto2 %}

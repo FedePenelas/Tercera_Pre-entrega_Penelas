@@ -59,15 +59,15 @@
                         <a class="navbar-brand" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
                     {% else %}
                     <div class="text-center">
+                        <img src="{{ avatar_url }}" />
                         <img height="40px" src="{{url}}">
                         <h3>{{user.username}}</h3>
                     </div>
                     
-                    <img src="{{ avatar_url }}" />
-                    <img height="40px" src="{{url}}">
+                   
                     
-                    <p class="text-muted small mb-4 mb-lg-0">{{ request.user.username }}.</p>
-                        <a class="navbar-brand" href="{% url 'editar_perfil' %}">Editar Perfil</a>
+
+                        <a class="navbar-brand" href="{% url 'mostrar_perfil' %}">Perfil</a>
                         <a class="navbar-brand" href="{% url 'cerrar_sesion' %}">Cerrar Sesion</a>
                     {% endif %}
                 </div>
@@ -96,11 +96,13 @@
                                 {% block contacto1 %}
                                 <div class="row">
                                     <div class="col">
-                                        <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Telefono o e-mail" data-sb-validations="required,email" />
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Es necesaria una dirección de e-mail.</div>
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">La dirección de e-mail es inválida.</div>
+                                        <input class="form-control form-control-lg" id="contactInfo" type="text" placeholder="Teléfono o Email" data-sb-validations="required,contactInfo" />
+                                        <div class="invalid-feedback text-white" data-sb-feedback="contactInfo:required">Este campo es requerido.</div>
+                                        <div class="invalid-feedback text-white" data-sb-feedback="contactInfo:contactInfo">Ingresa un teléfono o una dirección de correo electrónico válida.</div>
                                     </div>
-                                    <div class="col-auto"><button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Enviar</button></div>
+                                    <div class="col-auto">
+                                        <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Enviar</button>
+                                    </div>
                                 </div>
                                 {% endblock contacto1 %}
                                 <!-- Submit success message-->
@@ -161,7 +163,7 @@
                 <div class="row g-0">
                     <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets\img\bg-showcase-2.jpg')"></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        {% block imagen1 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\oso_1.jpg' %}" class="img-fluid"> {% endblock imagen1 %}
+                        {% block imagen1 %}<img src="{% static 'C:\Users\Fede\Desktop\Fede\Fede\Programacion\Coderhouse\Python\Pre-entregas\Tercera Pre-entrega\Tercera_Pre-entrega+PENELAS\AdoptAR\AdoptAR_pagina\static\assets\img\imagen_main.jpg' %}" class="img-fluid"> {% endblock imagen1 %}
                         <h2>{% block encabezado1%} Adoptemos con responsabilidad {% endblock encabezado1 %}</h2>
                         <p class="lead mb-0">{% block textoencabezado1 %} Se busca que las mascotas sean recibidas mediante una adopción responsable, se realiza seguimiento a las mascotas recientemente adoptadas. {% endblock textoencabezado1 %}</p>
                     </div>
@@ -233,12 +235,16 @@
                             <!-- Email address input-->{% block contacto2 %}
                             <div class="row">
                                 <div class="col">
-                                    <input class="form-control form-control-lg" id="emailAddressBelow" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>
+                                    <input class="form-control form-control-lg" id="contactInfo" type="text" placeholder="Teléfono o Email" data-sb-validations="required,contactInfo" />
+                                    <div class="invalid-feedback text-white" data-sb-feedback="contactInfo:required">Este campo es requerido.</div>
+                                    <div class="invalid-feedback text-white" data-sb-feedback="contactInfo:contactInfo">Ingresa un teléfono o una dirección de correo electrónico válida.</div>
                                 </div>
-                                <div class="col-auto"><button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Enviar</button></div>
-                            </div> {% endblock contacto2 %}
+                                <div class="col-auto">
+                                    <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Enviar</button>
+                                </div>
+                            </div>
+                            {% endblock contacto2 %}
+
                             <!-- Submit success message-->
                             <!---->
                             <!-- This is what your users will see when the form-->

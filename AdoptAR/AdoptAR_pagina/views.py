@@ -14,11 +14,11 @@ def index(request):
     contexto = {'variable': 'valor'}
     contexto.update(contexto_avatar)
     return render(request, 'index.html', contexto)
-
 def adoptar(request):
     contexto_avatar = obtener_contexto_avatar(request)
+
     if request.method == 'POST':
-        if request.user.is_authenticated:  # Verificar si el usuario está autenticado
+        if request.user.is_authenticated:
             form = ComentarioForm(request.POST)
             if form.is_valid():
                 contenido = form.cleaned_data['contenido']
@@ -26,13 +26,15 @@ def adoptar(request):
                 comentario.save()
                 return redirect('adoptar')
         else:
-            return redirect('nombre_de_la_vista_de_inicio_de_sesion')  # Reemplaza 'nombre_de_la_vista_de_inicio_de_sesion' con el nombre correcto de la vista de inicio de sesión
+            return redirect('nombre_de_la_vista_de_inicio_de_sesion')
+
     else:
         form = ComentarioForm()
 
-    contexto = {'variable': 'valor', 'form': form, **contexto_avatar}
-    return render(request, 'adoptar.html', contexto)
+    comentarios = Comentario.objects.all()  # Obtener todos los comentarios
 
+    contexto = {'form': form, 'comentarios': comentarios, **contexto_avatar}
+    return render(request, 'adoptar.html', contexto)
 def transito(request):
     contexto_avatar = obtener_contexto_avatar(request)
     contexto = {'variable': 'valor'}

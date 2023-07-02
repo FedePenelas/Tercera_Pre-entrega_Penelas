@@ -11,7 +11,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from AdoptAR_login.forms import RegistroUsuarioForm, EditarUsuarioForm
 from AdoptAR_pagina.forms import FormularioTransito, FormularioDonante, FormularioDarEnAdopcion, FormularioPersona
-from AdoptAR_login.models import Avatar
+from AdoptAR_login.models import Avatar, Comentario
 from .forms import ComentarioForm
 
 def login_request(request):
@@ -120,8 +120,8 @@ def agregar_comentario(request):
         if form.is_valid():
             contenido = form.cleaned_data['contenido']
             # Guarda el comentario en la base de datos o realiza cualquier otra lógica
-            # Ejemplo: comentario = Comentario(usuario=request.user, contenido=contenido)
-            # comentario.save()
+            comentario = Comentario(usuario=request.user, contenido=contenido)
+            comentario.save()
             return redirect('adoptar.html')
     else:
         form = ComentarioForm()
