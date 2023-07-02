@@ -1,5 +1,5 @@
 # Tercera_Pre-entrega_Penelas.
-ACLARACION: Tanto las carpetas como el nombre del repositorio quedan como Tercera entrega, pero se encuentra dentro todo lo referido al proyecto final. Sucede que trabajé sobre la tercera entrega y por eso quedaron los nombres. A modo de precaución, van a permanecer de esta manera.
+ACLARACION: Tanto las carpetas como el nombre del repositorio quedan como Tercera entrega, pero se encuentra dentro todo lo referido al proyecto final. Sucede que trabajé sobre la tercera entrega y por eso quedaron los nombres. A modo de precaución, van a permanecer de esta manera. La carpeta Tercera pre-entrega fue comprimida y el archivo .rar fue modificado su nombre a Proyecto Final - PENELAS.
 
 Dentro del archivo comprimido se encuentran los archivos relacionados al proyecto en lo que a codigo se refiere. Luego, en la carpeta llamada ARCHIVOS AGREGADOS, se encuentran los casos de prueba y el video explicativo.
 
