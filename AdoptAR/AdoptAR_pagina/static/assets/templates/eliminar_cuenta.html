@@ -1,14 +1,28 @@
 {% extends 'base.html' %}
 
+{% block titulo1 %} Eliminar Cuenta {% endblock titulo1 %}
+{% block login1 %}{% endblock login1 %}
+{% block mensaje1 %}
+<form action="{% url 'eliminar_perfil' user.id %}" method="POST" class="m-2">
+    {% csrf_token %}
+    <p>¿Desea eliminar su cuenta?</p>
+    <input type="submit" value="Confirmar" class="btn btn-primary">
+    <a href="{% url 'listo' %}""><button class="btn btn-primary m-2" type="button">Cancelar</button></a>
+</form>
+{% endblock mensaje1 %}
+{% block contacto1 %} {% endblock contacto1 %}
+{% block iconos %} {% endblock iconos %}
+{% block imagen1 %} {% endblock imagen1 %}
+{% block encabezado1 %} {% endblock encabezado1 %}
+{% block textoencabezado1 %} {% endblock textoencabezado1 %}
+{% block imagen2 %} {% endblock imagen2 %}
+{% block encabezado2 %} {% endblock encabezado2 %}
+{% block textoencabezado2 %} {% endblock textoencabezado2 %}
+{% block imagen3 %} {% endblock imagen3 %}
+{% block encabezado3 %} {% endblock encabezado3 %}
+{% block textoencabezado3 %} {% endblock textoencabezado3 %}
+{% block testimonials %}{% endblock testimonials %}
+{% block mensaje2 %} {% endblock mensaje2 %}
+{% block contacto2 %} {% endblock contacto2 %}
+
 {% load static %}
-
-{% block title %} Eliminar accounts {% endblock title %}
-
-{% block main %}
-    <form action="{% url 'eliminar_perfil' user.id %}" method="POST" class="m-2">
-        {% csrf_token %}
-        <p>Desea eliminar el curso?</p>
-        <input type="submit" value="Confirmar" class="btn btn-primary">
-        <a href="{% url 'home' %}""><button class="btn btn-primary m-2" type="button">Cancelar</button></a>
-    </form>
-{% endblock main %}

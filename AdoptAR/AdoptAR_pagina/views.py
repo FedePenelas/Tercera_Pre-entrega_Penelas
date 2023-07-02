@@ -99,7 +99,8 @@ def listo(request):
     plantilla = loader.get_template('listo.html')
     contexto = {'variable': 'valor'}
     documento = plantilla.render(contexto)
-    return HttpResponse(request)
+    return render(request, 'listo.html', contexto)
+
 def listodonar(request):
     plantilla = loader.get_template('listodonar.html')
     contexto = {'variable': 'valor'}

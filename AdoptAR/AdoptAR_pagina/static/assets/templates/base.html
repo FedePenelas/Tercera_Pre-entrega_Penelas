@@ -59,7 +59,9 @@
                         <a class="navbar-brand" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
                     {% else %}
                     <div class="text-center">
-                        <img src="{{ avatar_url }}" />
+                        {% if request.user.account.avatar %}
+                        <img src={{request.user.account.avatar.url}} alt="avatar" style="width: 160px; height:150px;" class="rounded-circle img-fluid">
+                    {% endif %}
                         <img height="40px" src="{{url}}">
                         <h3>{{user.username}}</h3>
                     </div>

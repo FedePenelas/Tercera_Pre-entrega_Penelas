@@ -14,6 +14,8 @@ from AdoptAR_pagina.forms import FormularioTransito, FormularioDonante, Formular
 from AdoptAR_login.models import Avatar, Comentario
 from .forms import ComentarioForm
 
+
+
 def login_request(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -83,12 +85,12 @@ def mostrar_perfil(request):
 
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'cambiar_contraseña.html'
-    success_url = reverse_lazy("mostrar_cuenta")
+    success_url = reverse_lazy("listo")
 
 class EliminarPerfil(LoginRequiredMixin, DeleteView):
     model = User
     success_url = reverse_lazy("index")
-    template_name = 'eliminar_account.html'
+    template_name = 'eliminar_cuenta.html'
 
 class Logout(LoginRequiredMixin, LogoutView):
     template_name = 'cerrar_sesion.html'
