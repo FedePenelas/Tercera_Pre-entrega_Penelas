@@ -35,6 +35,8 @@ def adoptar(request):
 
     contexto = {'form': form, 'comentarios': comentarios, **contexto_avatar}
     return render(request, 'adoptar.html', contexto)
+
+
 def transito(request):
     contexto_avatar = obtener_contexto_avatar(request)
     contexto = {'variable': 'valor'}
