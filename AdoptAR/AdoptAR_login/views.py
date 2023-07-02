@@ -121,10 +121,9 @@ def agregar_comentario(request):
         form = ComentarioForm(request.POST)
         if form.is_valid():
             contenido = form.cleaned_data['contenido']
-            # Guarda el comentario en la base de datos o realiza cualquier otra lógica
             comentario = Comentario(usuario=request.user, contenido=contenido)
             comentario.save()
-            return redirect('adoptar.html')
+            return redirect('adoptar')
     else:
         form = ComentarioForm()
     return render(request, 'adoptar.html', {'form': form, **contexto_avatar})
